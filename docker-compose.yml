@@ -1,0 +1,33 @@
+version: '3.7'
+
+services:
+  db_port_project:
+    container_name: db_port_project
+    image: postgres
+    environment:
+      - POSTGRES_DB=db_port_project
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=db_port_project
+      - PGDATA=/data/postgres
+    volumes:
+      - ./volume/v_db_port_project:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - db
+    restart: unless-stopped
+  
+  app_port_project:
+    container_name: app_port_project
+    build: .
+    ports:
+      - "777:777"
+    restart: always
+    networks:
+      - db
+    depends_on:
+      - db_port_project
+      
+networks:
+  db:
+    driver: bridge
