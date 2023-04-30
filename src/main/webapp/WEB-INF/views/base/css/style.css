@@ -1,0 +1,55 @@
+html,
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background: #7159c1;
+      }
+
+      .container {
+        display: grid;
+        grid-template: 10vh 80vh 10vh/12fr;
+        grid-template-areas:
+          "h"
+          "m"
+          "f";
+      }
+
+      header {
+        background: rgb(213, 213, 161);
+        height: 100%;
+        grid-area: h;
+
+        /*
+        grid-column: 1/3;
+        grid-row:1/2;
+        */
+
+        /*
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start:1;
+        grid-row-end:2;
+        */
+      }
+
+      main {
+        background: rgb(105, 105, 188);
+        height: 100%;
+
+        grid-area: m;
+      }
+
+      aside {
+        background: rgb(160, 206, 160);
+        height: 100%;
+
+        grid-area: a;
+      }
+
+      footer {
+        background: rgb(196, 151, 151);
+        height: 100%;
+
+        grid-area: f;
+      }
