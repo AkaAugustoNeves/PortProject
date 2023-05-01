@@ -1,6 +1,6 @@
             </main>
             <footer>
-                <h1>footer</h1>
+                <div class="footer-itens">Desenvolvido por: Augusto Neves Lima</div>
             </footer>
         </div>
     </body>

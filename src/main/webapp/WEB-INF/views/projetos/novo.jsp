@@ -52,14 +52,6 @@
                 </c:forEach>
               </select>
             </div>
-            <div class="form-group">
-              <label for="risco">Status:</label>
-              <select class="form-control" id="risco" name="risco">
-                <c:forEach items="${status}" var="status">
-                  <option value="${status}">${status}</option>
-                </c:forEach>
-              </select>
-            </div>
             <button type="submit" class="btn btn-primary">Criar</button>
           </form>
         </div>

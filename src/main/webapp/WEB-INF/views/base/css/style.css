@@ -1,55 +1,81 @@
-html,
-      body {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        background: #7159c1;
-      }
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-      .container {
-        display: grid;
-        grid-template: 10vh 80vh 10vh/12fr;
-        grid-template-areas:
-          "h"
-          "m"
-          "f";
-      }
+.container {
+  display: grid;
+  grid-template: 10vh 83vh 7vh/12fr;
+  grid-template-areas:
+    "h"
+    "m"
+    "f";
+}
 
-      header {
-        background: rgb(213, 213, 161);
-        height: 100%;
-        grid-area: h;
+header {
+  height: 100%;
+  grid-area: h;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #F2F4F7;
+}
 
-        /*
-        grid-column: 1/3;
-        grid-row:1/2;
-        */
+.header-itens {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  margin: 0;
+}
 
-        /*
-        grid-column-start: 1;
-        grid-column-end: 3;
-        grid-row-start:1;
-        grid-row-end:2;
-        */
-      }
+.header-itens img{
 
-      main {
-        background: rgb(105, 105, 188);
-        height: 100%;
+  width: 10vh;
+  height: 8vh;
+}
 
-        grid-area: m;
-      }
+main {
+  height: 100%;
+  grid-area: m;
+}
 
-      aside {
-        background: rgb(160, 206, 160);
-        height: 100%;
+aside {
+  height: 100%;
 
-        grid-area: a;
-      }
+  grid-area: a;
+}
 
-      footer {
-        background: rgb(196, 151, 151);
-        height: 100%;
+footer {
+  height: 100%;
+  grid-area: f;
+  display: flex;
+  flex-direction: row;        
+  justify-content: center;
+  background-color: #F2F4F7;
+  margin: 0;
+}
 
-        grid-area: f;
-      }
+.footer-itens {
+  display: flex;
+  align-content: center;
+  height: 100px;
+  margin: 10px;
+}
+
+.title-button{
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.table{
+  display: flex;
+  justify-content: center;
+}
+
+.title{
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}

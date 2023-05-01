@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.augusto.PortProject.model.entity.Projeto;
+import br.com.augusto.PortProject.model.enuns.Risco;
 import br.com.augusto.PortProject.model.form.ProjetoEditForm;
 import br.com.augusto.PortProject.model.form.ProjetoForm;
 import br.com.augusto.PortProject.repositories.ProjetoRepository;
@@ -47,6 +48,11 @@ public class ProjetoServiceImpl implements ProjetoService{
 			return projetoRepository.save(new Projeto(antigo.get(), projeto));
 		}
 		return null;
+	}
+
+	@Override
+	public List<Projeto> buscarPorRisco(Risco risco) {
+		return projetoRepository.findByRisco(risco);
 	}
 
     

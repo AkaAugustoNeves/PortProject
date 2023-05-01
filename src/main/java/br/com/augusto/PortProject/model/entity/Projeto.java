@@ -106,7 +106,7 @@ public class Projeto {
 		this.gerenteResponsavel = form.getGerenteResponsavel();
 		this.empresa = form.getEmpresa();
 		this.risco = form.getRisco();
-		this.status = form.getStatus();
+		this.status = Status.EM_ANALISE;
 	}
 	
 	

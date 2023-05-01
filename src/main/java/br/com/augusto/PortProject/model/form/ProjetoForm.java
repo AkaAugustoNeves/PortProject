@@ -27,6 +27,5 @@ public class ProjetoForm {
 	private Pessoa gerenteResponsavel;
 	private Empresa empresa;
 	private Risco risco;
-	private Status status;
 
 }

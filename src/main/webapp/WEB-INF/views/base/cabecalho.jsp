@@ -15,7 +15,14 @@
   <body>
     <div class="container">
       <header>
-        <h1>ação</h1>
+        <div class="header-itens">
+          <img src="https://go.trader.ca/wp-content/uploads/2022/02/250X250.png" alt="logo">
+        </div>
+        <div class="header-itens"></div>
+        <div class="header-itens">
+          <a href="/projetos">Inicio</a>
+          <a href="<c:url value='/projetos/novo'/>">novo</a>
+        </div>
       </header>
       
 

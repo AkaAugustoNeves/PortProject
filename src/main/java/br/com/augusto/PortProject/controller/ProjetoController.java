@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.augusto.PortProject.model.dto.ProjetoDTO;
 import br.com.augusto.PortProject.model.entity.Empresa;
@@ -59,6 +60,19 @@ public class ProjetoController {
         return "projetos/listar";
     }
 	
+	@GetMapping("/filtro")
+    public String tabelaProjetos(Model model, @RequestParam(name = "filtro-risco", required = false) Risco risco) {
+		System.out.println(risco);
+		List<Projeto> projetos;
+		if (risco != null) {
+			projetos = projetoService.buscarPorRisco(risco);
+		} else {
+			projetos = projetoService.buscarTodos();
+		}
+		model.addAttribute("projetos", projetos);
+		return "projetos/tabelaProjetos";
+	}
+	
 	@GetMapping("/novo")
     public String telaCadastro(Model model) {
 		List<Empresa> empresas = empresaService.buscarTodos();
@@ -66,7 +80,6 @@ public class ProjetoController {
         model.addAttribute("empresas", empresas);
         model.addAttribute("gerentes", gerentes);
         model.addAttribute("riscos", Risco.valores());
-        model.addAttribute("status", Status.valores());
 		return "projetos/novo";
     }
 	

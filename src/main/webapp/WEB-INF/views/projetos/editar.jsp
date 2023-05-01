@@ -36,7 +36,7 @@
               <label for="gerenteResponsavel">Gerente Responsável:</label>
               <select class="form-control" id="gerenteResponsavel" name="gerenteResponsavel.id" >
                 <c:forEach items="${gerentes}" var="gerente">
-                  <option value="${gerente.id}">${gerente.nome}</option>
+                  <option value="${gerente.id}"<c:if test="${projeto.gerenteResponsavel == gerente}">selected</c:if>>${gerente.nome}</option>
                 </c:forEach>
               </select>
             </div>
@@ -44,7 +44,7 @@
               <label for="empresa">Empresa:</label>
               <select class="form-control" id="empresa" name="empresa.id">
                 <c:forEach items="${empresas}" var="empresa">
-                  <option value="${empresa.id}">${empresa.nome}</option>
+                  <option value="${empresa.id}" <c:if test="${projeto.empresa == empresa}">selected</c:if>>${empresa.nome}</option>
                 </c:forEach>
               </select>
             </div>
@@ -52,15 +52,15 @@
               <label for="risco">Risco:</label>
               <select class="form-control" id="risco" name="risco">
                 <c:forEach items="${riscos}" var="risco">
-                  <option value="${risco}">${risco}</option>
+                  <option value="${risco}" <c:if test="${projeto.risco == risco}">selected</c:if>>${risco}</option>
                 </c:forEach>
               </select>
             </div>
             <div class="form-group">
               <label for="risco">Status:</label>
-              <select class="form-control" id="risco" name="risco">
+              <select class="form-control" id="status" name="status">
                 <c:forEach items="${status}" var="status">
-                  <option value="${status}">${status}</option>
+                  <option value="${status}" <c:if test="${projeto.status == status}">selected</c:if>>${status}</option>
                 </c:forEach>
               </select>
             </div>

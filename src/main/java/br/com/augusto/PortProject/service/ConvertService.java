@@ -12,8 +12,12 @@ public class ConvertService {
 	}
 	
 	public static Date convertStringToDate(String dateString) throws ParseException {
-	    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-	    return dateFormat.parse(dateString);
+		if(dateString == "") {
+			return null;
+		}else {
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			return dateFormat.parse(dateString);
+		}
 	}
 	
 }
