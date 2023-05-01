@@ -22,6 +22,7 @@ import br.com.augusto.PortProject.model.dto.ProjetoDTO;
 import br.com.augusto.PortProject.model.entity.Empresa;
 import br.com.augusto.PortProject.model.entity.Pessoa;
 import br.com.augusto.PortProject.model.entity.Projeto;
+import br.com.augusto.PortProject.model.enuns.Cargo;
 import br.com.augusto.PortProject.model.enuns.Risco;
 import br.com.augusto.PortProject.model.enuns.Status;
 import br.com.augusto.PortProject.model.form.ProjetoEditForm;
@@ -33,13 +34,16 @@ import br.com.augusto.PortProject.service.ProjetoService;
 @Controller
 @RequestMapping("/projetos")
 public class ProjetoController {
-	
-	@Autowired
-    private ProjetoService projetoService;
-	@Autowired
+
+	private ProjetoService projetoService;
 	private EmpresaService empresaService;
-	@Autowired
 	private PessoaService pessoaService;	
+	
+	public ProjetoController(ProjetoService projetoService, EmpresaService empresaService, PessoaService pessoaService) {
+		this.pessoaService = pessoaService;
+		this.projetoService = projetoService;
+		this.empresaService = empresaService;
+	}	
 	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
@@ -50,19 +54,13 @@ public class ProjetoController {
 	@GetMapping("")
     public String listar(Model model) {
 		List<Projeto> projetos = projetoService.buscarTodos();
-		List<Empresa> empresas = empresaService.buscarTodos();
-		List<Pessoa> gerentes = pessoaService.buscarTodos();
-        model.addAttribute("empresas", empresas);
-        model.addAttribute("gerentes", gerentes);
         model.addAttribute("projetos", projetos);
         model.addAttribute("riscos", Risco.valores());
-        model.addAttribute("status", Status.valores());
         return "projetos/listar";
     }
 	
 	@GetMapping("/filtro")
     public String tabelaProjetos(Model model, @RequestParam(name = "filtro-risco", required = false) Risco risco) {
-		System.out.println(risco);
 		List<Projeto> projetos;
 		if (risco != null) {
 			projetos = projetoService.buscarPorRisco(risco);
@@ -76,7 +74,7 @@ public class ProjetoController {
 	@GetMapping("/novo")
     public String telaCadastro(Model model) {
 		List<Empresa> empresas = empresaService.buscarTodos();
-		List<Pessoa> gerentes = pessoaService.buscarTodos();
+		List<Pessoa> gerentes = pessoaService.buscarPorCargo(Cargo.GERENTE);
         model.addAttribute("empresas", empresas);
         model.addAttribute("gerentes", gerentes);
         model.addAttribute("riscos", Risco.valores());
@@ -87,7 +85,7 @@ public class ProjetoController {
     public String telaEditar(@PathVariable("id") Long id, Model model) {
 		projetoService.buscarPorId(id);
 		List<Empresa> empresas = empresaService.buscarTodos();
-		List<Pessoa> gerentes = pessoaService.buscarTodos();
+		List<Pessoa> gerentes = pessoaService.buscarPorCargo(Cargo.GERENTE);
 		model.addAttribute("empresas", empresas);
         model.addAttribute("gerentes", gerentes);
         model.addAttribute("riscos", Risco.valores());
@@ -111,15 +109,13 @@ public class ProjetoController {
 	
 	@PostMapping("/{id}/editar")
 	public String editarProjeto(@PathVariable("id") Long id, @ModelAttribute("projeto") ProjetoEditForm projeto) throws ParseException {
-	    System.out.println("editar");
-		projetoService.editar(id, projeto);
+	   projetoService.editar(id, projeto);
 		return "redirect:/projetos";
 	}
 	
 	@PostMapping("/{id}/deletar")
 	public String deletarProjeto(@PathVariable("id") Long id) {
-		System.out.println("teste");
-	    projetoService.excluir(id);
+		projetoService.excluir(id);
 		return "redirect:/projetos";
 	}
 	
