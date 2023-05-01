@@ -118,6 +118,23 @@ public class Projeto {
 	    }
 		return true;
 	}
+
+	public static  List<Pessoa> filterFuncionariosIntegrantes(List<Pessoa> funcionarios, List<Pessoa> integrantes) {
+		List<Pessoa> pessoas = new ArrayList<>();
+		for(Pessoa funcionario: funcionarios) {
+			for(Pessoa integrante: integrantes) {
+				if(funcionario.getId().equals(integrante.getId())) {
+					pessoas.add(funcionario);
+				}
+			}
+		}
+		return pessoas;
+	}
+
+	public static List<Pessoa> filterFuncionariosNaoIntegrantes(List<Pessoa> funcionarios, List<Pessoa> integrantes) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }

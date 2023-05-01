@@ -60,6 +60,7 @@
                         <td>${projeto.risco}</td>
                         <td>${projeto.status}</td>
                         <td>
+                            <a href="<c:url value='/projetos/${projeto.id}/funcionarios'/>">Funcionarios</a>
                             <a href="<c:url value='/projetos/${projeto.id}/editar'/>">Editar</a>
                             <a href="<c:url value='/projetos/${projeto.id}/deletar'/>">Excluir</a>
                         </td>

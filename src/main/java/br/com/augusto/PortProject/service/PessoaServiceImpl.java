@@ -1,6 +1,7 @@
 package br.com.augusto.PortProject.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,11 @@ public class PessoaServiceImpl implements PessoaService{
 	@Override
 	public Pessoa salvar(PessoaForm pessoa) {
 		return pessoaRepository.save(new Pessoa(pessoa));
+	}
+
+	@Override
+	public Optional<Pessoa> buscarPorId(Long id) {
+		return pessoaRepository.findById(id);
 	}
 	
 }
