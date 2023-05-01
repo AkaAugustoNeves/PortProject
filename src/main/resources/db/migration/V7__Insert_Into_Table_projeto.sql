@@ -1,5 +1,4 @@
 INSERT INTO projeto(
-    id, 
     nome, 
     descricao, 
     data_inicio, 
@@ -12,7 +11,6 @@ INSERT INTO projeto(
     status
 )
 VALUES(
-    1, 
     'Pandora', 
     'um projeto ai', 
     '1998-03-24', 

@@ -1,5 +1,6 @@
-INSERT INTO pessoa (id, nome) VALUES
-(1, 'Pessoa 1 da Silva'),
-(2, 'Pessoa 2 da Silva'),
-(3, 'Pessoa 3 da Silva'),
-(4, 'Pessoa 4 da Silva');
+INSERT INTO pessoa (nome, cargo) VALUES
+('Gerente 1 da Silva', 'GERENTE'),
+('Gerente 2 da Silva', 'GERENTE'),
+('Funcionario 1 da Silva', 'FUNCIONARIO'),
+('Funcionario 2 da Silva', 'FUNCIONARIO'),
+('Funcionario 3 da Silva', 'FUNCIONARIO');
