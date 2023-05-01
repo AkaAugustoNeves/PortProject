@@ -109,5 +109,15 @@ public class Projeto {
 		this.status = Status.EM_ANALISE;
 	}
 	
+	public static boolean validDelete(Projeto projeto) {
+		List<Status> statusList = List.of(Status.INICIADO, Status.EM_ANDAMENTO, Status.ENCERRADO);
+		 for (Status status : statusList) {
+	        if (projeto.getStatus().equals(status)) {
+	            return false;
+	        }
+	    }
+		return true;
+	}
+	
 	
 }

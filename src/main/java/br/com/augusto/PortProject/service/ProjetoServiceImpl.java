@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.augusto.PortProject.model.entity.Projeto;
 import br.com.augusto.PortProject.model.enuns.Risco;
+import br.com.augusto.PortProject.model.enuns.Status;
 import br.com.augusto.PortProject.model.form.ProjetoEditForm;
 import br.com.augusto.PortProject.model.form.ProjetoForm;
 import br.com.augusto.PortProject.repositories.ProjetoRepository;
@@ -41,7 +42,12 @@ public class ProjetoServiceImpl implements ProjetoService{
     @Override
     @Transactional
     public void excluir(Long id) {
-        projetoRepository.deleteById(id);
+    	Optional<Projeto> projeto = projetoRepository.findById(id);
+    	if(projeto.isPresent()) {
+    		if(Projeto.validDelete(projeto.get())) {
+    			projetoRepository.deleteById(id);	
+    		}
+    	}    	
     }
 
 	@Override
