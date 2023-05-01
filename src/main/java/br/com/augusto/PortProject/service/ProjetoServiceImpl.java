@@ -17,9 +17,12 @@ import br.com.augusto.PortProject.repositories.ProjetoRepository;
 @Service
 public class ProjetoServiceImpl implements ProjetoService{
 
-	@Autowired
     private ProjetoRepository projetoRepository;
 
+    public ProjetoServiceImpl(ProjetoRepository projetoRepository) {
+		this.projetoRepository = projetoRepository;
+	}
+    
     @Override
     public List<Projeto> buscarTodos() {
         return projetoRepository.findAll();

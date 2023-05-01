@@ -11,8 +11,11 @@ import br.com.augusto.PortProject.repositories.PessoaRepository;
 @Service
 public class PessoaServiceImpl implements PessoaService{
 
-	@Autowired
 	private PessoaRepository pessoaRepository;
+
+	public PessoaServiceImpl(PessoaRepository pessoaRepository) {
+		this.pessoaRepository = pessoaRepository;
+	}
 	
 	@Override
 	public List<Pessoa> buscarTodos() {

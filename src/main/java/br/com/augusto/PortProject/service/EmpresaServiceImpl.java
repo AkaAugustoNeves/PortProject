@@ -11,8 +11,11 @@ import br.com.augusto.PortProject.repositories.EmpresaRepository;
 @Service
 public class EmpresaServiceImpl implements EmpresaService {
 
-	@Autowired
 	private EmpresaRepository empresaRepository;
+
+	public EmpresaServiceImpl(EmpresaRepository empresaRepository) {
+		this.empresaRepository = empresaRepository;
+	}	
 	
 	@Override
 	public List<Empresa> buscarTodos() {
