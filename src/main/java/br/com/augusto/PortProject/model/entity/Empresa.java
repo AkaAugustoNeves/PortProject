@@ -22,6 +22,10 @@ public class Empresa {
 	private Long id;
 	private String nome;
 	
+	public Empresa(String nome){
+		this.nome = nome;
+	}
+	
 	public Long getId() {
 		return id;
 	}

@@ -131,10 +131,6 @@ public class Projeto {
 		return pessoas;
 	}
 
-	public static List<Pessoa> filterFuncionariosNaoIntegrantes(List<Pessoa> funcionarios, List<Pessoa> integrantes) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 	
 }
