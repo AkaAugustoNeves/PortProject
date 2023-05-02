@@ -1,1 +1,1 @@
-.\mvnw.cmd clean install -DskipTests & docker-compose up
+.\mvnw clean install -DskipTests & docker-compose up
