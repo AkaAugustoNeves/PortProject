@@ -23,8 +23,15 @@
         <td>${projeto.risco}</td>
         <td>${projeto.status}</td>
         <td>
-            <a href="<c:url value='/projetos/${projeto.id}/editar'/>">Editar</a>
-            <a href="<c:url value='/projetos/${projeto.id}/deletar'/>">Excluir</a>
+            <a href="<c:url value='/projetos/${projeto.id}/funcionarios'/>">
+                <img src="https://tinypic.host/images/2023/05/02/funcionarios.png" alt="funcionarios.png" border="0" />
+            </a>
+            <a href="<c:url value='/projetos/${projeto.id}/editar'/>">
+                <img src="https://tinypic.host/images/2023/05/02/lapis.png" alt="lapis.png" border="0" />
+            </a>
+            <a href="<c:url value='/projetos/${projeto.id}/deletar'/>">
+                <img src="https://tinypic.host/images/2023/05/02/lixeira.png" alt="lixeira.png" border="0" />
+            </a> 
         </td>
     </tr>
 </c:forEach>

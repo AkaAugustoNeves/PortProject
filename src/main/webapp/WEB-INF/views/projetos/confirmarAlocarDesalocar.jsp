@@ -4,11 +4,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ include file="../base/cabecalho.jsp" %>
 <main>
-    <h1>${acao} usuario</h1>
-    <p>Deseja realmente ${acao}, o usuario ${pessoa.nome} do projeto ${projeto.nome}?</p>
-    <button id="acao-button">${acao}</button>
-
-    <script>
+    <div class="container">
+        
+        <h1>${acao} Usuario:</h1>
+        <p>Deseja realmente ${acao}, o usuario ${pessoa.nome} do projeto ${projeto.nome}?</p>
+        <button class="btn btn-default" id="acao-button">${acao}</button>
+        
+        <script>
         document.getElementById('acao-button').addEventListener('click', function() {
             var xhr = new XMLHttpRequest();
             xhr.open('POST', '/projetos/${projeto.id}/${acao}/${pessoa.id}');
@@ -17,8 +19,9 @@
                 window.location.replace("/projetos/${projeto.id}/funcionarios");
             }, 700);
         });
-
-    </script>
-
+        
+        </script>
+    </div>
+</main>
 
 <%@ include file="../base/rodape.jsp" %>

@@ -4,41 +4,47 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ include file="../base/cabecalho.jsp" %>
 <main>
+    <div class="container">
 
-    <h1>Projeto: ${projeto.nome}</h1>
+        <h1>Projeto: ${projeto.nome}</h1>
+        
+        
+        <div class="panel panel-default">
+            <table class="table">
+                <h2>integrantes:</h2>
+                <div class="panel-heading">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                </div>
+                <div class="panel-body">
+                    <c:forEach var="integrante" items="${integrantes}">
+                        <tr>
+                            <td>${integrante.nome}</td>
+                            <td>
+                                <a href="<c:url value='/projetos/${projeto.id}/DESALOCAR/${integrante.id}'/>">Desalocar</a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </div>
+            </table>
+        </div>
 
-    <h2>integrantes:</h2>
-    <div class="table">
-        <table>
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody id="tabela-projetos" >
-                <c:forEach var="integrante" items="${integrantes}">
+    <div class="panel panel-default">
+        <table class="table">
+            <h2>Outros Funcionarios:</h2>
+            <div class="panel-heading">
+                <thead>
                     <tr>
-                        <td>${integrante.nome}</td>
-                        <td>
-                            <a href="<c:url value='/projetos/${projeto.id}/DESALOCAR/${integrante.id}'/>">Desalocar</a>
-                        </td>
+                        <th>Nome</th>
+                        <th>Ações</th>
                     </tr>
-                </c:forEach>
-            </tbody>
-        </table>
-    </div> 
-
-    <h2>Outros Funcionarios</h2>
-    <div class="table">
-        <table>
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody id="tabela-projetos" >
+                </thead>
+            </div>
+            <div class="panel-body">
                 <c:forEach var="funcionario" items="${funcionarios}">
                     <tr>
                         <td>${funcionario.nome}</td>
@@ -47,8 +53,8 @@
                         </td>
                     </tr>
                 </c:forEach>
-            </tbody>
+            </div>
         </table>
-    </div> 
-
+    </div>
+</main>
 <%@ include file="../base/rodape.jsp" %>
